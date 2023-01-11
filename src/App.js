@@ -1,23 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import {useState} from 'react';
+import WebsiteData from './components/WebsiteData';
 
 function App() {
+  const [url, setUrl] = useState('https://amazon.com');
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <form>
+        <label>
+          URL:
+          <input type="text" value={url} onChange={(e) => setUrl(e.target.value)}/>
+        </label>
+      </form>
+      <WebsiteData url={url}/>
     </div>
   );
 }

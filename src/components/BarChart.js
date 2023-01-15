@@ -11,13 +11,15 @@ const BarChart = ({ labels, data, label, backgroundColor, borderColor, borderWid
         type: 'bar',
         data: {
           labels,
-          datasets: [{
-            label,
-            data,
-            backgroundColor,
-            borderColor,
-            borderWidth
-          }]
+          datasets: [
+            {
+              label,
+              data,
+              backgroundColor,
+              borderColor,
+              borderWidth
+            }
+          ]
         },
         options: {
           scales: {
@@ -29,10 +31,10 @@ const BarChart = ({ labels, data, label, backgroundColor, borderColor, borderWid
       });
     }
     return () => {
-      if(chart){
+      if (chart) {
         chart.destroy();
       }
-    }
+    };
   }, [labels, data, label, backgroundColor, borderColor, borderWidth]);
 
   return <canvas id={labels} ref={chartRef} />;

@@ -12,6 +12,7 @@ const WebsiteData = () => {
   useEffect(() => {
     // Fetch data from the express endpoint
     // In a normal app you would configure the endpoint using env vars or a config file
+    // I would usually use axios for this type of call since it allows us greater configuration such as setting headers
     fetch(`http://localhost:3001/api/pagespeed`)
       .then((response) => response.json())
       .then((data) => {
@@ -38,9 +39,13 @@ const WebsiteData = () => {
         );
         setIsLoading(false);
       })
+      // Ideally if we caught an error we would display an error component to the user and log the error to a proper
+      // logging service such as Sentry
       .catch((error) => console.log(error));
   }, []);
 
+  // The API call can be very slow, so we want to display to the user something is happening,
+  // and they are waiting for something to load
   if (isLoading) {
     return (
       <div>

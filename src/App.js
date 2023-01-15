@@ -12,6 +12,7 @@ function App() {
         pulled from Google lighthouse. The data is displayed in seconds. The lower the number the
         better the performance.
       </p>
+      {/*This is the main component for handling the website data and charts*/}
       <WebsiteData />
     </div>
   );

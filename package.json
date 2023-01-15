@@ -25,7 +25,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build:css": "postcss src/tailwind.css -o public/styles.css"
+    "build:css": "postcss src/tailwind.css -o public/styles.css",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix",
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
   },
   "eslintConfig": {
     "extends": [
@@ -47,7 +50,12 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
+    "eslint": "^8.32.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.0",
     "jest-fetch-mock": "^3.0.3",
-    "postcss-cli": "^10.1.0"
+    "postcss-cli": "^10.1.0",
+    "prettier": "^2.8.3"
   }
 }

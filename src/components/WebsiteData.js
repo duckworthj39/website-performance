@@ -36,11 +36,13 @@ const WebsiteData = () => {
       <BarChart
         labels={pageSpeedData.map((p) => p.site)}
         data={pageSpeedData.map((p) => p.speedScore)}
-        label="Website Speed Scores"
+        label="Speed Scores"
         backgroundColor="rgba(255, 99, 132, 0.2)"
         borderColor="rgba(255, 99, 132, 1)"
         borderWidth={1}
+        title=" Performance - Speed Scores"
       />
+      <br />
       <BarChart
         labels={pageSpeedData.map((p) => p.site)}
         data={pageSpeedData.map((p) => p.firstContentfulPaint)}
@@ -48,7 +50,9 @@ const WebsiteData = () => {
         backgroundColor="rgba(54, 162, 235, 0.2)"
         borderColor="rgba(54, 162, 235, 1)"
         borderWidth={1}
+        title="Performance - First Contentful Paint"
       />
+      <br />
       <BarChart
         labels={pageSpeedData.map((p) => p.site)}
         data={pageSpeedData.map((p) => p.timeToInteractive)}
@@ -56,6 +60,7 @@ const WebsiteData = () => {
         backgroundColor="rgba(195, 255, 104, 0.2)"
         borderColor="rgba(195, 255, 104, 1)"
         borderWidth={1}
+        title="Performance - Time To Interactive"
       />
     </div>
   );

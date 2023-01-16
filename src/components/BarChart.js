@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto';
 
-const BarChart = ({ labels, data, label, backgroundColor, borderColor, borderWidth }) => {
+const BarChart = ({ labels, data, label, backgroundColor, borderColor, borderWidth, title }) => {
   const chartRef = useRef(null);
   let chart = null;
 
@@ -26,6 +26,12 @@ const BarChart = ({ labels, data, label, backgroundColor, borderColor, borderWid
           scales: {
             y: {
               beginAtZero: true
+            }
+          },
+          plugins: {
+            title: {
+              display: true,
+              text: title
             }
           }
         }

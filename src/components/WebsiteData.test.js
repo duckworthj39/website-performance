@@ -7,10 +7,30 @@ jest.mock('./BarChart', () => jest.fn());
 
 describe('WebsiteCharts', () => {
   const mockData = [
-    { site: 'https://www.amazon.com', speedScore: 0.9 },
-    { site: 'https://www.bestbuy.com', speedScore: 0.8 },
-    { site: 'https://www.target.com', speedScore: 0.7 },
-    { site: 'https://www.walmart.com', speedScore: 0.6 }
+    {
+      site: 'https://www.amazon.com',
+      speedScore: 0.9,
+      firstContentfulPaint: 1,
+      timeToInteractive: 2
+    },
+    {
+      site: 'https://www.bestbuy.com',
+      speedScore: 0.8,
+      firstContentfulPaint: 1,
+      timeToInteractive: 2
+    },
+    {
+      site: 'https://www.target.com',
+      speedScore: 0.7,
+      firstContentfulPaint: 1,
+      timeToInteractive: 2
+    },
+    {
+      site: 'https://www.walmart.com',
+      speedScore: 0.6,
+      firstContentfulPaint: 1,
+      timeToInteractive: 2
+    }
   ];
 
   beforeEach(() => {

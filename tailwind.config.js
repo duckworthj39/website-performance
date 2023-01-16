@@ -4,7 +4,7 @@ module.exports = {
     container: {
       center: true,
       padding: '1rem',
-      maxWidth: '50%',
+      maxWidth: '50%'
     },
     extend: {}
   },

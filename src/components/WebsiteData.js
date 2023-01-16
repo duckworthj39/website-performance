@@ -3,10 +3,7 @@ import BarChart from './BarChart';
 import LoadingSpinner from './LoadingSpinner';
 
 const WebsiteData = () => {
-  const [amazonData, setAmazonData] = useState({});
-  const [bestBuyData, setBestBuyData] = useState({});
-  const [targetData, setTargetData] = useState({});
-  const [walmartData, setWalmartData] = useState({});
+  const [pageSpeedData, setPageSpeedData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -16,27 +13,7 @@ const WebsiteData = () => {
     fetch(`http://localhost:3001/api/pagespeed`)
       .then((response) => response.json())
       .then((data) => {
-        // Find each sites data and set it to state
-        setAmazonData(
-          data.find(function (item) {
-            return item.site === 'https://www.amazon.com';
-          })
-        );
-        setBestBuyData(
-          data.find(function (item) {
-            return item.site === 'https://www.bestbuy.com';
-          })
-        );
-        setTargetData(
-          data.find(function (item) {
-            return item.site === 'https://www.target.com';
-          })
-        );
-        setWalmartData(
-          data.find(function (item) {
-            return item.site === 'https://www.walmart.com';
-          })
-        );
+        setPageSpeedData(data);
         setIsLoading(false);
       })
       // Ideally if we caught an error we would display an error component to the user and log the error to a proper
@@ -57,27 +34,27 @@ const WebsiteData = () => {
   return (
     <div>
       <BarChart
-        labels={['Amazon', 'Walmart']}
-        data={[amazonData.speedScore, walmartData.speedScore]}
-        label="Performance Walmart"
+        labels={pageSpeedData.map((p) => p.site)}
+        data={pageSpeedData.map((p) => p.speedScore)}
+        label="Website Speed Scores"
         backgroundColor="rgba(255, 99, 132, 0.2)"
         borderColor="rgba(255, 99, 132, 1)"
         borderWidth={1}
       />
       <BarChart
-        labels={['Amazon', 'BestBuy']}
-        data={[amazonData.speedScore, bestBuyData.speedScore]}
-        label="Performance Best Buy"
+        labels={pageSpeedData.map((p) => p.site)}
+        data={pageSpeedData.map((p) => p.firstContentfulPaint)}
+        label="First Contentful Paint (s) - When the first user friendly content is displayed"
         backgroundColor="rgba(54, 162, 235, 0.2)"
         borderColor="rgba(54, 162, 235, 1)"
         borderWidth={1}
       />
       <BarChart
-        labels={['Amazon', 'Target']}
-        data={[amazonData.speedScore, targetData.speedScore]}
-        label="Performance Target"
-        backgroundColor="rgba(255, 206, 86, 0.2)"
-        borderColor="rgba(255, 206, 86, 1)"
+        labels={pageSpeedData.map((p) => p.site)}
+        data={pageSpeedData.map((p) => p.timeToInteractive)}
+        label="Time To Interactive (s) - When the page is fully interactive"
+        backgroundColor="rgba(195, 255, 104, 0.2)"
+        borderColor="rgba(195, 255, 104, 1)"
         borderWidth={1}
       />
     </div>

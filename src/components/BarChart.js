@@ -5,6 +5,7 @@ const BarChart = ({ labels, data, label, backgroundColor, borderColor, borderWid
   const chartRef = useRef(null);
   let chart = null;
 
+  // When a side effect occurs re render the graphs with the new data
   useEffect(() => {
     if (chartRef.current) {
       chart = new Chart(chartRef.current.getContext('2d'), {
@@ -31,6 +32,7 @@ const BarChart = ({ labels, data, label, backgroundColor, borderColor, borderWid
       });
     }
     return () => {
+      // Clean up charts so chart.js can re render them
       if (chart) {
         chart.destroy();
       }

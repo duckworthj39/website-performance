@@ -1,14 +1,3 @@
-# Purpose
-
-- Assess the technical design and implementation skills, in addition to the candidates ability to interpret a client requirements brief.
-
-# Guidance
-
-- Review the enclosed requirements brief and ask clarifying questions.
-- Submit a working (executable) product folder with a readme that demonstrates your response to the brief.
-- Maximal code comments are recommended to explain your design choices and the trade offs.
-- A session will be organised to discuss your assessment once it has been submitted.
-
 # Brief
 
 - The client, Amazon.com, has requested a single page website proof-of-concept that displays a summary of it's website performance vs 3 key competitors: walmart.com, bestbuy.com, target.com.
